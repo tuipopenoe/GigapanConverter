@@ -14,7 +14,7 @@ imagemagick="/usr/bin/montage" #Linux path to Imagemagick
 if os.name == "nt":
   imagemagick="C:\\Program Files\\ImageMagick-6.8.5-Q16\\montage.exe" #Windows path to Imagemagick
 
-def getText(nodelist):
+def get_text(nodelist):
     rc = ""
     for node in nodelist:
         if node.nodeType == node.TEXT_NODE:
@@ -26,13 +26,17 @@ def find_element_value(e,name):
     while len(nodelist) > 0 :
         node = nodelist.pop()
         if node.nodeType == node.ELEMENT_NODE and node.localName == name:
-            return getText(node.childNodes)
+            return get_text(node.childNodes)
         else:
             nodelist += node.childNodes
 
     return None
 
+def main():
 
+
+if __name__ == '__main__':
+    main()
 #main
 
 photo_id = int(sys.argv[1])
